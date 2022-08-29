@@ -4,9 +4,9 @@ import Header from "./components/Header"
 function App() {
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-10">
     <Header />
-    <div className="md: ml-40 md:flex flex-col p-5 rounded-lg bg-white">
+    <div className="md:mx-36 my-1 md:flex">
     <Form />
     </div>
     </div>

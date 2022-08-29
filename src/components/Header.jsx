@@ -1,9 +1,8 @@
 function Header() {
 
   return (
-    <div className="container mx-auto py-10 text-center">
-      <h1 className="text-4xl font-black">Validación de <span className="text-purple-800 inline text-4xl font-black">Formulario</span></h1>
-    </div>
+      <h1 className="font-black text-5xl mb-8 text-center mx-auto md:w-2/3">Validación de 
+      <span className="text-purple-800"> Formulario</span></h1>
       
   )
 }
