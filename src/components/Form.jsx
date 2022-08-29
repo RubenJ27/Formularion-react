@@ -34,7 +34,7 @@ const Form = () => {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Your work has been saved',
+        title: 'Ejercicio completado 😎',
         showConfirmButton: false,
         timer: 1500
       })
