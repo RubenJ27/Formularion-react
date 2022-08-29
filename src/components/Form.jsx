@@ -1,16 +1,44 @@
 import { useState } from "react";
+import AlertError from "./AlertError";
 
-function Form() {
-
+const Form = () => {
 
     const [user, setUser] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
-    const [date, setDate] = useState("")
+    const [date, setDate] = useState("");
 
-   /*  const handleSubmit = (e) => {
+    const [error, setError] = useState(false);
+
+    const handleSubmit = (e) => {
       e.preventDefault();
-    } */
+
+      if ([user, phone, email, date].includes("")) {
+        setError(true);
+        return;
+      }
+
+      setError(false);
+
+      /* Limpiar formulario */
+      setUser("");
+      setPhone("");
+      setEmail("");
+      setDate("");
+
+      /* Ejercicio finalizado */
+      okModal();
+    } 
+
+    const okModal = () => {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    };
 
 
   return (
@@ -18,7 +46,7 @@ function Form() {
     <div className="md:w-full h-full lg:w-1/2 mx-5 relative">
       {/* Inicia el Formulario */}
       <form
-        /* onSubmit={handleSubmit} */
+        onSubmit={handleSubmit}
         className="bg-white shadow-md rounded-lg py-7 px-5 mb-1 h-full relative"
       >
         <div className="mb-5">
@@ -113,11 +141,12 @@ function Form() {
           <b>🎂 Cumpleaños:</b> {date}
         </div>
         
-        
       </div>
-      <div className="bg-red-600 font-bold uppercase text-center text-white p-3 mb-2 rounded-md">
-        <p>Todos los campos son obligatorios</p>
-        </div>
+      {error && (
+        <AlertError>
+          <p>Todos los campos son obligatorios</p>
+        </AlertError>
+      )}
     </div>
   </>
 
